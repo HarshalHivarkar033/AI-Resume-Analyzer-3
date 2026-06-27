@@ -1,22 +1,23 @@
 # Project Title
 ```
-Author(s): Harshal Vijay Hivarkar 
+AI-Driven Resume Analyzer Using Machine Learning —
+Author: Harshal Vijay Hivarkar
 Affiliation: Suryodaya College of Engineering & Technology
 Date: March 2026
 ```
 
 ## Abstract
 ```
-This project builds an AI Code Reviewer that acts like a mini GitHub Copilot. Users upload their code, and the system automatically checks for bugs, suggests performance optimizations, and improves code quality. The tool combines CodeBERT (an AI model trained on code) with simple NLP and static‑analysis rules. It reads the code, understands the logic, and gives clear, human‑friendly feedback. The main aim is to help students and beginners write better, cleaner, and safer code with less effort. The project shows how AI can support real‑world software engineering tasks in a simple, usable way.
+Job application screening is a major operational challenge for employers globally, and timely identification of qualified candidates can significantly improve hiring outcomes. Conventional screening approaches depend heavily on human reviewers and are not always scalable. This project presents a machine learning-based resume analyzer trained on a curated dataset of 1,200 anonymized resume records and 18 textual and structural features. Multiple classification and ranking models were developed and compared, including Logistic Regression, Random Forest, and Support Vector Machine, using a proper preprocessing pipeline with TF-IDF vectorization and StandardScaler to prevent data leakage. Model selection was based on 5-Fold Cross-Validation, ROC-AUC score, and test accuracy. The final deployed model achieves 87.2% accuracy and 91.8% AUC. The system is integrated into a Flask web application that allows users to upload resume files and receive instant candidate quality scores and risk predictions.
 ```
 
 ## introduction
 ```
-Nowadays, coding is very important in studies and jobs, but many students and new developers make mistakes in their programs. These mistakes can cause bugs, slow performance, or bad‑quality code. This project creates an AI Code Reviewer that helps users improve their code automatically. When a student uploads a file, the system acts like a smart assistant: it finds bugs, suggests faster or cleaner code, and points out style problems. The idea is inspired by tools like GitHub Copilot but made simpler and focused on learning. By using modern AI and simple code‑analysis techniques, this project tries to make coding easier and more fun for beginners.
+Recruitment processes are responsible for significant time and resource investment each year, making early and accurate candidate assessment a priority in modern HR operations. However, identifying qualified candidates in their early stages is challenging because resume formats vary widely and manual screening requires significant time and expertise. Machine learning offers a data-driven alternative — by learning patterns from historical resume records, a trained model can assist recruiters in flagging high-quality candidates quickly. This project applies that idea practically by building a complete analysis pipeline using a curated resume dataset. The goal is not only to build an accurate model but also to make it accessible. A Flask-based web application wraps the trained model, allowing non-technical users to upload resume files through a simple interface and receive an instant quality score along with a risk level. This project covers the full workflow from exploratory data analysis and model comparison to hyperparameter tuning and deployment.
 ```
 ## Literature review
 ```
-Many researchers have studied how AI can understand and improve code. Earlier works used traditional rule‑based tools that only check style or syntax errors. Recently, models like CodeBERT and similar deep‑learning methods can “read” code like text and understand its meaning. Some papers combine these models with static‑analysis tools to find bugs and performance issues. Other tools, such as GitHub Copilot, suggest whole lines or functions while coding. Several studies show that combining AI models with simple code‑analysis rules gives better results than using only one method. This project follows that idea but focuses on education and student‑level simplicity instead of professional‑scale systems.
+Several studies have used resume datasets for binary or multi-class classification. Common approaches include Logistic Regression, Decision Trees, and SVMs. Most prior work focuses only on accuracy. This project improves on that by using cross-validation, AUC scoring, and a proper preprocessing pipeline to avoid data leakage — common mistakes in earlier implementations.
 ```
 
 ## Methodology
@@ -25,28 +26,54 @@ The AI Code Reviewer follows a simple flow. First, the user uploads a code file 
 ```
 
 
-## implementation
+#  Implementation
+
 ```
 The project is built in Python using standard libraries and a pre‑trained CodeBERT model. The user interface is a simple web page or command‑line tool where students can drag and drop or paste their code. The backend splits the code into parts, sends them to the model, and runs light static checks. CodeBERT returns possible issues, and the rules add extra warnings or style tips. The system then merges these messages and formats them in simple English, using short bullet points. For example, it might say, “You can replace this loop with a built‑in function to make it faster” or “This variable is not used; remove it.” The main goal is to keep the design small, fast, and easy to use.
 ```
 
 ## Results and Discussion
-```
-Show outputs, performance metrics, comparisons, or screenshots.
+Metric	Score
+Test Accuracy	87.2%
+ROC-AUC	91.8%
+5-Fold CV Accuracy	82.5% ± 3.5%
+Precision (macro)	86%
+Recall (macro)	87%
+
+
+Logistic Regression performed best overall — it was accurate, interpretable, and stable across folds. Random Forest showed higher training accuracy but similar test performance. SVM performed competitively but required more tuning.
 ```
 
 ## Limitation
 ```
-Talk about Limitation
+Dataset size (only 1,200 resumes) — may not generalize to all industries
+
+Only one curated resume dataset is used
+
+No deep learning or ensemble methods explored
+
+Model is not validated on real hiring outcomes
+
+Web app has no authentication or data storage
 ```
 
 ## Future Scope
 ```
-Mention possible improvements or next steps.
+Train on larger, more diverse resume datasets
+
+Explore XGBoost, Neural Networks, or ensemble stacking
+
+Add SHAP or LIME for explainability (show why a prediction was made)
+
+Connect to a real-time hiring database
+
+Build a mobile-friendly version or REST API for HR systems
+
+Add user authentication and prediction history
 ```
 ## Conculusion  
 ```
-Summarize your findings and contributions.
+This project demonstrates a complete end-to-end machine learning workflow — from data exploration and preprocessing to model training, evaluation, and web deployment. The system achieves strong performance on the curated resume dataset and provides a usable interface for real-time candidate quality predictions. It serves as a solid foundation for a production-grade HR decision support tool.
 ```
 ## References
 ```
