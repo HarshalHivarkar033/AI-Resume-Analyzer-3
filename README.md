@@ -26,7 +26,7 @@ The AI Code Reviewer follows a simple flow. First, the user uploads a code file 
 ```
 
 
-#  Implementation
+##  Implementation
 
 ```
 The project is built in Python using standard libraries and a pre‑trained CodeBERT model. The user interface is a simple web page or command‑line tool where students can drag and drop or paste their code. The backend splits the code into parts, sends them to the model, and runs light static checks. CodeBERT returns possible issues, and the rules add extra warnings or style tips. The system then merges these messages and formats them in simple English, using short bullet points. For example, it might say, “You can replace this loop with a built‑in function to make it faster” or “This variable is not used; remove it.” The main goal is to keep the design small, fast, and easy to use.
